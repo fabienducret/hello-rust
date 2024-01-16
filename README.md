@@ -7,3 +7,16 @@ Small introduction to Rust with some concepts :
 - Dependency Inversion
 - Unit tests
 - CI
+
+## Start
+
+```
+cargo run
+```
+
+Output
+
+```
+---> Hello, OOP
+---> Hello, Functional programming
+```
