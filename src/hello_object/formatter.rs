@@ -4,6 +4,6 @@ pub struct DefaultFormatter;
 
 impl Formatter for DefaultFormatter {
     fn format(&self, value: String) -> String {
-        format!("---> {} <---", &value)
+        format!("\x1b[31m---> {}\x1b[0m", &value)
     }
 }

@@ -5,7 +5,7 @@ mod tests {
     struct StubFormatter;
     impl Formatter for StubFormatter {
         fn format(&self, value: String) -> String {
-            format!("{}, formatted", value)
+            format!("<formatted>{}</formatted>", value)
         }
     }
 
@@ -19,6 +19,6 @@ mod tests {
         let to_display = hello_to(String::from("Fabien"));
 
         // Assert
-        assert_eq!(to_display, "Hello, Fabien, formatted");
+        assert_eq!(to_display, "<formatted>Hello, Fabien</formatted>");
     }
 }
