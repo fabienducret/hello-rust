@@ -12,11 +12,11 @@ mod tests {
     #[test]
     fn say_hello() {
         // Arrange
-        let formatter = Box::new(StubFormatter);
-        let hello = Hello::new(formatter);
+        let hello = Hello::new(Box::new(StubFormatter));
+        let name = String::from("Fabien");
 
         // Act
-        let to_display = hello.to(String::from("Fabien"));
+        let to_display = hello.to(name);
 
         // Assert
         assert_eq!(to_display, "<formatted>Hello, Fabien</formatted>");

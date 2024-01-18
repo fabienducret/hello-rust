@@ -1,16 +1,16 @@
 use crate::hello_func::{formatter::DefaultFormatter as FuncFormatter, hello::hello_factory};
-use crate::hello_object::{formatter::DefaultFormatter as ObjectFormatter, hello::Hello};
+use crate::hello_object::{formatter::DefaultFormatter as OOPFormatter, hello::Hello};
 
 mod hello_func;
 mod hello_object;
 
 fn main() {
-    object_way();
+    oop_way();
     func_way();
 }
 
-fn object_way() {
-    let formatter = Box::new(ObjectFormatter);
+fn oop_way() {
+    let formatter = Box::new(OOPFormatter);
     let hello = Hello::new(formatter);
 
     let name = String::from("OOP");
