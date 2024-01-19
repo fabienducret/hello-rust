@@ -1,4 +1,4 @@
-use crate::hello_object::hello::Formatter;
+use crate::oop::greeter::Formatter;
 
 pub struct DefaultFormatter;
 

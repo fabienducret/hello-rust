@@ -1,8 +1,8 @@
-use crate::hello_func::{formatter::DefaultFormatter as FuncFormatter, hello::hello_factory};
-use crate::hello_object::{formatter::DefaultFormatter as OOPFormatter, hello::Hello};
+use crate::func::{formatter::DefaultFormatter as FuncFormatter, greeter::say_hello_to_factory};
+use crate::oop::{formatter::DefaultFormatter as OOPFormatter, greeter::Greeter};
 
-mod hello_func;
-mod hello_object;
+mod func;
+mod oop;
 
 fn main() {
     oop_way();
@@ -11,20 +11,20 @@ fn main() {
 
 fn oop_way() {
     let formatter = Box::new(OOPFormatter);
-    let hello = Hello::new(formatter);
+    let greeter = Greeter::new(formatter);
 
     let name = String::from("OOP");
-    let to_display = hello.to(name);
+    let to_display = greeter.say_hello_to(name);
 
     println!("{}", to_display);
 }
 
 fn func_way() {
     let formatter = &FuncFormatter;
-    let hello_to = hello_factory(formatter);
+    let say_hello_to = say_hello_to_factory(formatter);
 
     let name = String::from("Functional programming");
-    let to_display = hello_to(name);
+    let to_display = say_hello_to(name);
 
     println!("{}", to_display);
 }

@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::hello_func::hello::{hello_factory, Formatter};
+    use crate::oop::greeter::{Formatter, Greeter};
 
     struct StubFormatter;
     impl Formatter for StubFormatter {
@@ -10,13 +10,13 @@ mod tests {
     }
 
     #[test]
-    fn say_hello() {
+    fn say_hello_to() {
         // Arrange
-        let hello_to = hello_factory(&StubFormatter);
+        let greeter = Greeter::new(Box::new(StubFormatter));
         let name = String::from("Fabien");
 
         // Act
-        let to_display = hello_to(name);
+        let to_display = greeter.say_hello_to(name);
 
         // Assert
         assert_eq!(to_display, "<formatted>Hello, Fabien</formatted>");
