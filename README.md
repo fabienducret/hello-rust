@@ -16,4 +16,4 @@ cargo run
 
 Output
 
-![Alt text](docs/terminal_result.png 'Terminal output')
+![Alt text](docs/terminal_output.png 'Terminal output')

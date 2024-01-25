@@ -1,3 +1,5 @@
+use std::io;
+
 use crate::func::{decoration::StyleDecoration, greetings::say_hello_to_factory};
 use crate::oop::{decoration::ColorDecoration, greetings::Greetings};
 
@@ -5,26 +7,38 @@ mod func;
 mod oop;
 
 fn main() {
-    oop_way();
-    func_way();
+    let name = ask_for_name();
+
+    display_oop_way(&name);
+    display_func_way(&name);
 }
 
-fn oop_way() {
+fn ask_for_name() -> String {
+    println!("What is your name ?");
+
+    let mut raw_name = String::new();
+
+    io::stdin()
+        .read_line(&mut raw_name)
+        .expect("Failed to read line");
+
+    String::from(raw_name.trim())
+}
+
+fn display_oop_way(name: &String) {
     let decoration = Box::new(ColorDecoration);
     let greetings = Greetings::new(decoration);
 
-    let name = String::from("OOP");
-    let to_display = greetings.say_hello_to(name);
+    let to_display = greetings.say_hello_to(String::from(name));
 
     println!("{}", to_display);
 }
 
-fn func_way() {
+fn display_func_way(name: &String) {
     let decoration = &StyleDecoration;
     let say_hello_to = say_hello_to_factory(decoration);
 
-    let name = String::from("Functional programming");
-    let to_display = say_hello_to(name);
+    let to_display = say_hello_to(String::from(name));
 
     println!("{}", to_display);
 }
