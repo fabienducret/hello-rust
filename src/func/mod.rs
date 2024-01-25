@@ -1,3 +1,3 @@
-pub mod formatter;
-pub mod greeter;
-pub mod greeter_test;
+pub mod decoration;
+pub mod greetings;
+pub mod greetings_test;
