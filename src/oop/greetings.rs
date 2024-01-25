@@ -7,8 +7,8 @@ pub struct Greetings {
 }
 
 impl Greetings {
-    pub fn new(decoration: Box<dyn Decoration>) -> Greetings {
-        Greetings { decoration }
+    pub fn new(decoration: Box<dyn Decoration>) -> Self {
+        Self { decoration }
     }
 
     pub fn say_hello_to(&self, name: String) -> String {
