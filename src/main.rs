@@ -1,6 +1,6 @@
 use std::io;
 
-use crate::func::{decoration::StyleDecoration, greetings::say_hello_to_factory};
+use crate::func::{decoration::StyleDecoration, greetings::say_hello_with};
 use crate::oop::{decoration::ColorDecoration, greetings::Greetings};
 
 mod func;
@@ -36,7 +36,7 @@ fn display_oop_way(name: &String) {
 
 fn display_func_way(name: &String) {
     let decoration = &StyleDecoration;
-    let say_hello_to = say_hello_to_factory(decoration);
+    let say_hello_to = say_hello_with(decoration);
 
     let to_display = say_hello_to(String::from(name));
 

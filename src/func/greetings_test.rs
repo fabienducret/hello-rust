@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::func::greetings::{say_hello_to_factory, Decoration};
+    use crate::func::greetings::{say_hello_with, Decoration};
 
     struct StubDecoration;
     impl Decoration for StubDecoration {
@@ -12,7 +12,7 @@ mod tests {
     #[test]
     fn say_hello_to() {
         // Arrange
-        let say_hello_to = say_hello_to_factory(&StubDecoration);
+        let say_hello_to = say_hello_with(&StubDecoration);
         let name = String::from("Fabien");
 
         // Act
