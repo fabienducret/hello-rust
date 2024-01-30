@@ -6,8 +6,7 @@ fn main() {
         process::exit(1);
     });
 
-    hello_rust::display_oop_way(&name);
-    hello_rust::display_func_way(&name);
+    hello_rust::say_hello_to(&name);
 }
 
 fn ask_for_name() -> Result<String, Box<dyn Error>> {
