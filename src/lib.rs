@@ -5,24 +5,20 @@ mod func;
 mod oop;
 
 pub fn say_hello_to(name: &String) {
-    display_oop_way(name);
-    display_func_way(name);
+    println!("{}", with_struct(name));
+    println!("{}", with_func(name));
 }
 
-fn display_oop_way(name: &String) {
+fn with_struct(name: &String) -> String {
     let decoration = Box::new(ColorDecoration);
     let greetings = Greetings::new(decoration);
 
-    let to_display = greetings.say_hello_to(String::from(name));
-
-    println!("{}", to_display);
+    greetings.say_hello_to(String::from(name))
 }
 
-fn display_func_way(name: &String) {
+fn with_func(name: &String) -> String {
     let decoration = &StyleDecoration;
     let say_hello_to = say_hello_with(decoration);
 
-    let to_display = say_hello_to(String::from(name));
-
-    println!("{}", to_display);
+    say_hello_to(String::from(name))
 }
