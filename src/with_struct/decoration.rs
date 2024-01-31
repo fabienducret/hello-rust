@@ -4,6 +4,6 @@ pub struct ColorDecoration;
 
 impl Decoration for ColorDecoration {
     fn apply_to(&self, value: String) -> String {
-        format!("\x1b[31m{}\x1b[0m", &value)
+        format!("\x1b[31m{}, decorated with color\x1b[0m", &value)
     }
 }

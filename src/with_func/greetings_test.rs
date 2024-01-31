@@ -19,6 +19,6 @@ mod tests {
         let to_display = say_hello_to(name);
 
         // Assert
-        assert_eq!(to_display, "--> Hello, Fabien <--");
+        assert_eq!(to_display, "--> Hello Fabien <--");
     }
 }

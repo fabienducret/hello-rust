@@ -12,7 +12,7 @@ impl Greetings {
     }
 
     pub fn say_hello_to(&self, name: String) -> String {
-        let hello = format!("Hello, {}", &name);
+        let hello = format!("Hello {}", &name);
 
         self.decoration.apply_to(hello)
     }
