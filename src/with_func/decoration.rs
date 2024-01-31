@@ -1,4 +1,4 @@
-use crate::func::greetings::Decoration;
+use crate::with_func::greetings::Decoration;
 
 pub struct StyleDecoration;
 

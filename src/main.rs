@@ -12,8 +12,8 @@ fn main() {
 fn ask_for_name() -> Result<String, Box<dyn Error>> {
     println!("What is your name ?");
 
-    let mut raw_name = String::new();
-    io::stdin().read_line(&mut raw_name)?;
+    let mut name = String::new();
+    io::stdin().read_line(&mut name)?;
 
-    Ok(String::from(raw_name.trim()))
+    Ok(String::from(name.trim()))
 }

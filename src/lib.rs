@@ -1,8 +1,8 @@
-use crate::func::{decoration::StyleDecoration, greetings::say_hello_with};
-use crate::oop::{decoration::ColorDecoration, greetings::Greetings};
+use crate::with_func::{decoration::StyleDecoration, greetings::say_hello_with};
+use crate::with_struct::{decoration::ColorDecoration, greetings::Greetings};
 
-mod func;
-mod oop;
+mod with_func;
+mod with_struct;
 
 pub fn say_hello_to(name: &String) {
     println!("{}", with_struct(name));

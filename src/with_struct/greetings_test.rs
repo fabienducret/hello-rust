@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::oop::greetings::{Decoration, Greetings};
+    use crate::with_struct::greetings::{Decoration, Greetings};
 
     struct StubDecoration;
     impl Decoration for StubDecoration {
