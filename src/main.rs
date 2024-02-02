@@ -1,10 +1,15 @@
+use crate::grettings::{decoration::StyleDecoration, greetings::say_hello_with};
 use std::{error::Error, io, process};
 
+mod grettings;
+
 fn main() {
-    match ask_for_name() {
-        Err(err) => exit_process_with(err),
-        Ok(name) => hello_rust::say_hello_to(&name),
-    }
+    let decoration = &StyleDecoration;
+    let say_hello = say_hello_with(decoration);
+
+    ask_for_name()
+        .map(say_hello)
+        .map_or_else(handle_error, print);
 }
 
 fn ask_for_name() -> Result<String, Box<dyn Error>> {
@@ -16,7 +21,11 @@ fn ask_for_name() -> Result<String, Box<dyn Error>> {
     Ok(String::from(name.trim()))
 }
 
-fn exit_process_with(err: Box<dyn Error>) {
+fn handle_error(err: Box<dyn Error>) {
     println!("{}", err);
     process::exit(1);
+}
+
+fn print(to_display: String) {
+    println!("{}", to_display);
 }

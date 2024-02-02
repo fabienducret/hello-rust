@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::with_func::greetings::{say_hello_with, Decoration};
+    use crate::grettings::greetings::{say_hello_with, Decoration};
 
     struct StubDecoration;
     impl Decoration for StubDecoration {
