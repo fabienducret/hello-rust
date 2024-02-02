@@ -1,18 +1,17 @@
 use crate::grettings::{decoration::StyleDecoration, greetings::say_hello_with};
-use std::{error::Error, io, process};
+use std::{io, process};
 
 mod grettings;
 
 fn main() {
-    let decoration = &StyleDecoration;
-    let say_hello = say_hello_with(decoration);
+    let say_hello = say_hello_with(&StyleDecoration);
 
     ask_for_name()
-        .map(say_hello)
+        .and_then(say_hello)
         .map_or_else(handle_error, print);
 }
 
-fn ask_for_name() -> Result<String, Box<dyn Error>> {
+fn ask_for_name() -> Result<String, io::Error> {
     println!("What is your name ?");
 
     let mut name = String::new();
@@ -21,8 +20,8 @@ fn ask_for_name() -> Result<String, Box<dyn Error>> {
     Ok(String::from(name.trim()))
 }
 
-fn handle_error(err: Box<dyn Error>) {
-    println!("{}", err);
+fn handle_error(err: io::Error) {
+    println!("Error: {}", err);
     process::exit(1);
 }
 
