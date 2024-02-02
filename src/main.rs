@@ -8,7 +8,7 @@ fn main() {
 
     ask_for_name()
         .and_then(say_hello)
-        .map_or_else(handle_error, print);
+        .map_or_else(handle_error, print_hello);
 }
 
 fn ask_for_name() -> Result<String, io::Error> {
@@ -25,6 +25,6 @@ fn handle_error(err: io::Error) {
     process::exit(1);
 }
 
-fn print(to_display: String) {
-    println!("{}", to_display);
+fn print_hello(hello: String) {
+    println!("{}", hello);
 }
