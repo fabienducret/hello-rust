@@ -7,11 +7,13 @@ pub trait Decoration {
 pub fn say_hello_with<'a>(
     decoration: &'a impl Decoration,
 ) -> Box<dyn Fn(String) -> Result<String, Error> + 'a> {
+    let say_hello_to = |name: String| {
+        let hello = format!("Hello {}", &name);
+        decoration.apply_to(hello)
+    };
+
     Box::new(move |name| match name.as_str() {
         "" => Err(Error::new(ErrorKind::InvalidData, "empty name")),
-        _ => {
-            let hello = format!("Hello {}", &name);
-            Ok(decoration.apply_to(hello))
-        }
+        _ => Ok(say_hello_to(name)),
     })
 }
