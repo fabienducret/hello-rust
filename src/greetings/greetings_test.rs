@@ -1,6 +1,7 @@
 #[cfg(test)]
 mod tests {
-    use crate::grettings::greetings::{say_hello_with, Decoration};
+    use std::io::ErrorKind;
+    use crate::greetings::greetings::{say_hello_with, Decoration};
 
     struct StubDecoration;
     impl Decoration for StubDecoration {
@@ -32,6 +33,8 @@ mod tests {
         let result = say_hello_to(empty_name);
 
         // Assert
-        assert_eq!(result.is_err(), true);
+        let error = result.unwrap_err();
+        assert_eq!(error.to_string(), "empty name");
+        assert_eq!(error.kind(), ErrorKind::InvalidData);
     }
 }

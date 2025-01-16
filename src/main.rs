@@ -1,7 +1,7 @@
-use crate::grettings::{decoration::StyleDecoration, greetings::say_hello_with};
+use crate::greetings::{decoration::StyleDecoration, greetings::say_hello_with};
 use std::{io, process};
 
-mod grettings;
+mod greetings;
 
 fn main() {
     let say_hello = say_hello_with(&StyleDecoration);
