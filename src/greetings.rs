@@ -1,3 +1,3 @@
 pub mod decoration;
-pub mod greetings;
-mod greetings_test;
+pub mod hello;
+mod hello_test;

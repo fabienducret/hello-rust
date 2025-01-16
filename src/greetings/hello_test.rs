@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
+    use crate::greetings::hello::{say_hello_with, Decoration};
     use std::io::ErrorKind;
-    use crate::greetings::greetings::{say_hello_with, Decoration};
 
     struct StubDecoration;
     impl Decoration for StubDecoration {
